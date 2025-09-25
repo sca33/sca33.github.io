@@ -89,6 +89,38 @@
       ]
     }
   </script>
+  <script>
+(function() {
+  const referrer = document.referrer || "direct";
+  const params = new URLSearchParams(window.location.search);
+  let utm = {}; params.forEach((v,k)=>utm[k]=v);
+
+  function sendLog(event, detail) {
+    fetch("https://your-worker-subdomain.workers.dev/log", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        event,
+        detail,
+        referrer,
+        utm,
+        human: true,
+        ts: new Date().toISOString()
+      })
+    }).catch(()=>{});
+  }
+
+  // Pageview (fires only if JS runs, i.e., human)
+  sendLog("pageview", { path: window.location.pathname });
+
+  // Track clicks
+  document.querySelectorAll(".link").forEach(el => {
+    el.addEventListener("click", () => {
+      sendLog("click", { id: el.textContent.trim(), href: el.href });
+    });
+  });
+})();
+</script>
 
   <style>
     :root {
