@@ -96,7 +96,7 @@
   let utm = {}; params.forEach((v,k)=>utm[k]=v);
 
   function sendLog(event, detail) {
-    fetch("https://your-worker-subdomain.workers.dev/log", {
+    fetch("https://tracking-service.bushmelev-org.workers.dev/log", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
