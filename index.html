@@ -1,24 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About me</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; text-align: center; }
-        a { color: #007bff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 10px 0; }
-    </style>
+  <!-- Basics -->
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <meta name="color-scheme" content="light dark" />
+  <title>
+    Mikhail Bushmelev | Senior Java Developer
+  </title>
+
+  <!-- Primary SEO -->
+  <meta
+    name="description"
+    content="Mikhail Bushmelev — Senior Java Developer with 15 years of experience in backend engineering, Java, Spring Boot, microservices, and distributed systems. Available for hire."
+  />
+  <meta
+    name="keywords"
+    content="Senior Java Developer, Java, Spring Boot, JVM, backend engineer, microservices, distributed systems, software engineer, enterprise Java, hire Java developer, contract Java, freelance Java"
+  />
+  <meta name="author" content="Mikhail Bushmelev" />
+  <link rel="canonical" href="https://bushmelev.org/" />
+
+  <!-- Search Bots -->
+  <meta
+    name="robots"
+    content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+  />
+  <meta name="googlebot" content="index,follow" />
+  <meta name="bingbot" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bushmelev.org/" />
+  <meta
+    property="og:title"
+    content="Mikhail Bushmelev | Senior Java Developer for Hire"
+  />
+  <meta
+    property="og:description"
+    content="Senior Java Developer with 15 years' experience in backend engineering, JVM, Spring Boot, and enterprise systems."
+  />
+  <!-- Example: later replace placeholder with your hosted photo -->
+  <meta property="og:image" content="https://bushmelev.org/static/profile-placeholder.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta
+    name="twitter:title"
+    content="Mikhail Bushmelev | Senior Java Developer"
+  />
+  <meta
+    name="twitter:description"
+    content="Experienced in Java, Spring Boot, microservices, distributed systems. Available for hire."
+  />
+
+  <!-- Identity links -->
+  <link rel="me" href="https://linkedin.com/in/mbushmelev" />
+  <link rel="me" href="mailto:mikhail@bushmelev.org" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mikhail Bushmelev",
+      "jobTitle": "Senior Java Developer",
+      "description": "Senior Java Developer with 15 years of experience in backend engineering, distributed systems, Spring Boot, and enterprise Java. Open to hire for contract and full-time roles.",
+      "url": "https://bushmelev.org/",
+      "email": "mailto:mikhail@bushmelev.org",
+      "sameAs": [
+        "https://linkedin.com/in/mbushmelev",
+        "https://calendly.com/bushmelev-m/30min"
+      ],
+      "knowsAbout": [
+        "Java",
+        "JVM",
+        "Spring Framework",
+        "Spring Boot",
+        "Microservices",
+        "Distributed Systems",
+        "REST APIs",
+        "Cloud",
+        "CI/CD",
+        "Testing"
+      ]
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #111;
+      --muted: #555;
+      --card: #fff;
+      --border: #ddd;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --btn-border: #bbb;
+      --btn-hover: #f0f0f0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111;
+        --text: #eee;
+        --muted: #aaa;
+        --card: #1c1c1c;
+        --border: #333;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        --btn-border: #444;
+        --btn-hover: #2a2a2a;
+      }
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 48px 32px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+    .avatar {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 24px;
+      background: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 700;
+      color: #444;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none; /* replace with display:block once real photo provided */
+    }
+    h1 { font-size: 1.9rem; margin-bottom: 8px; }
+    .subtitle { font-size:1rem; color: var(--muted); margin-bottom: 28px; }
+    .links { display: flex; flex-direction: column; gap: 14px; }
+    .link {
+      display: block;
+      padding: 14px 18px;
+      border: 1px solid var(--btn-border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .link:hover { background: var(--btn-hover); transform: translateY(-1px); }
+    @media (max-width: 420px) {
+      .container{ padding: 40px 20px;}
+      .link{ padding:16px 18px;}
+    }
+  </style>
 </head>
 <body>
-    <h1>Hi there,</h1>
-    <p>Connect with me below:</p>
-    <ul>
-        <li><a href="https://linkedin.com/in/mbushmelev">LinkedIn</a></li>
-        <li><a href="mailto:mikhail@bushmelev.org">Email Me</a></li>
-        <li><a href="https://calendly.com/bushmelev-m/30min">Book a Call</a></li>
-    </ul>
+  <main class="container" role="main">
+    <!-- Avatar placeholder -->
+    <div class="avatar">
+      MB
+      <!-- <img src="profile.jpg" alt="Portrait of Mikhail Bushmelev" /> -->
+    </div>
+
+    <h1>Mikhail Bushmelev</h1>
+    <p class="subtitle">Senior Java Developer</p>
+
+    <nav class="links" aria-label="Contact links">
+      <a
+        href="https://linkedin.com/in/mbushmelev"
+        class="link"
+        target="_blank"
+        rel="noopener"
+        >LinkedIn</a
+      >
+      <a href="mailto:mikhail@bushmelev.org" class="link">Email Me</a>
+      <a
+        href="https://calendly.com/bushmelev-m/30min"
+        class="link"
+        target="_blank"
+        rel="noopener"
+        >Book a Call</a
+      >
+    </nav>
+  </main>
 </body>
 </html>
